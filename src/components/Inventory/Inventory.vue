@@ -1,6 +1,7 @@
 <template>
   <div class="inventory-panel">
     <p> Inventory </p>
+    <h1> {{ inventory[0].name }} </h1>
   </div>
 </template>
 
@@ -16,8 +17,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "../../styles/variables/widths.scss";
   .inventory-panel {
     display: flex;
     flex: 1;
+    background: #EEE;
+    @media(max-width: $medium-breakpoint) {
+      min-height: 100vh;
+    }
   }
 </style>

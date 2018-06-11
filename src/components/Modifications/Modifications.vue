@@ -14,9 +14,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "../../styles/variables/widths.scss";
   .modifications-panel {
     display: flex;
     flex-direction: column;
     flex-basis: 20%;
+    background: #DDD;
+    @media(max-width: $medium-breakpoint) {
+      min-height: 100vh;
+      min-width: 250px;
+    }
+    @media(max-width: $small-breakpoint) {
+      display: none;
+    }
   }
 </style>

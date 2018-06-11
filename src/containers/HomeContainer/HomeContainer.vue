@@ -1,7 +1,7 @@
 <template>
   <div class="home-grid">
     <Modifications></Modifications>
-    <Inventory v-bind="{ loading, error, inventory: data.inventory }"></Inventory>
+    <Inventory v-bind="{ loading, error, inventory: data.items }"></Inventory>
     <Order></Order>
   </div>
 </template>
@@ -36,8 +36,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "../../styles/variables/widths.scss";
   .home-grid {
     height: 100%;
     display: flex;
+    flex: 1;
+    @media(max-width: $medium-breakpoint) {
+      flex-wrap: wrap;
+    }
   }
 </style>
