@@ -1,10 +1,16 @@
 <template>
-  <HomePage v-bind="{ loading, error, inventory }"></HomePage>
+  <div class="home-grid">
+    <Modifications></Modifications>
+    <Inventory v-bind="{ loading, error, inventory: data.inventory }"></Inventory>
+    <Order></Order>
+  </div>
 </template>
 
 <script>
 import Container from '@/classes/Container'
-import HomePage from '@/views/HomePage/HomePage'
+import Inventory from '@/components/Inventory/Inventory'
+import Modifications from '@/components/Modifications/Modifications'
+import Order from '@/components/Order/Order'
 import { getInventory } from './api'
 
 export default {
@@ -12,23 +18,26 @@ export default {
   mixins: [Container],
   data () {
     return {
-      inventory: false
+      data: false
     }
   },
   components: {
-    HomePage
+    Inventory,
+    Modifications,
+    Order
   },
   mounted () {
     getInventory()
-      .then(function (inventory) {
-        this.inventory = inventory
+      .then(function (data) {
+        this.data = data
       }.bind(this))
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .grid {
+  .home-grid {
+    height: 100%;
     display: flex;
   }
 </style>

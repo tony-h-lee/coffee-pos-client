@@ -1,13 +1,12 @@
 <template>
-  <div class="section">
-    <p> Hi </p>
-    <h1> {{ inventory.name }} </h1>
+  <div class="inventory-panel">
+    <p> Inventory </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomePage',
+  name: 'Inventory',
   props: {
     loading: { type: Boolean, required: true },
     error: { type: [Object, Boolean], required: true },
@@ -17,7 +16,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .section {
+  .inventory-panel {
+    display: flex;
     flex: 1;
   }
 </style>
