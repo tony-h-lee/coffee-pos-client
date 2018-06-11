@@ -1,11 +1,15 @@
 <template>
   <div class="grid">
+    <p> Hi </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomePage'
+  name: 'HomePage',
+  props: {
+    inventory: { type: [Object, Boolean], required: true }
+  }
 }
 </script>
 

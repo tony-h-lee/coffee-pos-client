@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomePage from '@/views/HomePage/HomePage'
+import HomeContainer from '@/containers/HomeContainer/HomeContainer'
 
 Vue.use(Router)
 
@@ -9,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'HomePage',
-      component: HomePage
+      component: HomeContainer
     }
   ]
 })
