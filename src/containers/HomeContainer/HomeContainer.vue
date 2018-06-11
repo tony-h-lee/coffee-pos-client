@@ -1,11 +1,11 @@
 <template>
-  <HomePage :inventory="inventory" />
+  <HomePage v-bind="{ loading, error, inventory }"></HomePage>
 </template>
 
 <script>
 import Container from '@/classes/Container'
-import Mock from '@/mock/example_store'
 import HomePage from '@/views/HomePage/HomePage'
+import { getInventory } from './api'
 
 export default {
   name: 'HomeContainer',
@@ -19,10 +19,10 @@ export default {
     HomePage
   },
   mounted () {
-    // Call API to retrieve inventory
-    setTimeout(function () {
-      this.inventory = Mock
-    }, 350)
+    getInventory()
+      .then(function (inventory) {
+        this.inventory = inventory
+      }.bind(this))
   }
 }
 </script>

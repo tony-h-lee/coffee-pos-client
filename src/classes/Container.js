@@ -7,7 +7,7 @@ export default {
   data: function (dataField) {
     return {
       loading: false,
-      errors: false,
+      error: false,
       [dataField]: false
     }
   }
