@@ -8,7 +8,7 @@
 export default {
   name: 'Modifications',
   props: {
-    selected: { type: Object, required: true }
+    selected: { type: Boolean, required: true }
   }
 }
 </script>

@@ -15,6 +15,9 @@ export default {
     min-height: 100vh;
     margin: 0;
   }
+  * {
+    box-sizing: border-box;
+  }
   body {
     @extend %full-screen;
   }

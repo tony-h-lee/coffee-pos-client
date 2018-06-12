@@ -8,7 +8,7 @@
 export default {
   name: 'Order',
   props: {
-    items: { type: Object, required: true }
+    items: { type: [Object, Boolean], required: true }
   }
 }
 </script>
