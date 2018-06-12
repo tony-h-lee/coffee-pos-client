@@ -1,8 +1,15 @@
 <template>
   <div class="home-wrapper">
     <div class="home-grid" v-if="state.shopData && !state.loading">
-      <Modifications :selected="state.selectedItem"></Modifications>
-      <Inventory v-bind="{ loading, error, inventory: state.shopData.items }"></Inventory>
+      <Modifications
+        :selected="state.selectedItem"
+        v-bind="{ modifications: state.selectedItem && state.shopData.modifications }">
+      </Modifications>
+      <Inventory
+        v-bind="{ inventory: state.shopData.items }"
+        v-on:selectItem="loadModifications">
+
+      </Inventory>
       <Order :items="state.currentOrder"></Order>
     </div>
     <div class="home-loader" v-else>
@@ -36,7 +43,6 @@ export default {
   },
   mounted () {
     this.state.loading = true
-    console.log(this.state.loading)
     getShopData()
       .then(function (data) {
         this.state.loading = false
@@ -45,6 +51,11 @@ export default {
       .catch(function (error) {
         this.state.error = error
       })
+  },
+  methods: {
+    loadModifications: function (item) {
+      this.state.selectedItem = item
+    }
   }
 }
 </script>

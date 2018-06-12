@@ -30,5 +30,9 @@ export default {
       flex-basis: 50%;
       height: 300px;
     }
+    @media(max-width: $tiny-breakpoint) {
+      flex-basis: 100%;
+      height: 300px;
+    }
   }
 </style>

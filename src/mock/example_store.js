@@ -16,6 +16,16 @@ export default {
       id: 'd3',
       name: 'Smoothie',
       cost: '3'
+    },
+    {
+      id: 'd4',
+      name: 'Frap',
+      cost: '3'
+    },
+    {
+      id: 'd5',
+      name: 'Cap',
+      cost: '3'
     }
   ],
   modifications: [

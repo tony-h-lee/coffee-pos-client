@@ -1,6 +1,7 @@
 <template>
   <div class="inventory-panel">
     <Item
+      v-on:click.native="selectItem(item)"
       v-for="item in inventory"
       v-bind:item="item"
       v-bind:key="item.id">
@@ -16,9 +17,12 @@ export default {
     Item
   },
   props: {
-    loading: { type: Boolean, required: true },
-    error: { type: [Object, Boolean], required: true },
     inventory: { type: [Array, Boolean], required: true }
+  },
+  methods: {
+    selectItem: function (item) {
+      this.$emit('selectItem', item)
+    }
   }
 }
 </script>
@@ -30,8 +34,9 @@ export default {
     flex: 1;
     flex-wrap: wrap;
     background: #EEE;
+    align-content: flex-start;
     @media(max-width: $medium-breakpoint) {
-      min-height: 100vh;
+      min-height: 50vh;
     }
   }
 </style>
