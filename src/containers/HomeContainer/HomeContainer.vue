@@ -3,7 +3,8 @@
     <div class="home-grid" v-if="state.shopData && !state.loading">
       <Modifications
         :selected="state.selectedItem"
-        v-bind="{ modifications: state.selectedItem && state.shopData.modifications }">
+        v-bind="{ modifications: state.selectedItem && state.shopData.modifications }"
+        v-on:toggleModification="toggleModification">
       </Modifications>
       <Inventory
         v-bind="{ inventory: state.shopData.items }"
@@ -55,6 +56,15 @@ export default {
   methods: {
     loadModifications: function (item) {
       this.state.selectedItem = item
+    },
+    toggleModification: function (modification) {
+      if (this.state.selectedModifications.indexOf(modification) !== -1) {
+        this.state.selectedModifications = this.state.selectedModifications
+          .filter((selectedModification) => selectedModification.id !== modification.id)
+      } else {
+        this.state.selectedModifications = [...this.state.selectedModifications, modification]
+      }
+      console.log(this.state.selectedModifications)
     }
   }
 }

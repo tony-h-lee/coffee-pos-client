@@ -1,6 +1,7 @@
 <template>
   <div class="modification-list">
     <ModificationItem
+      v-on:click.native="selectModification(modification)"
       v-for="modification in modifications"
       v-bind:item="modification"
       v-bind:key="modification.id"
@@ -17,6 +18,11 @@ export default {
   },
   props: {
     modifications: { type: Array, required: true }
+  },
+  methods: {
+    selectModification: function (modification) {
+      this.$emit('toggleModification', modification)
+    }
   }
 }
 </script>
@@ -26,12 +32,5 @@ export default {
   .modification-list {
     display: flex;
     flex-direction: column;
-    @media(max-width: $medium-breakpoint) {
-      min-height: 100vh;
-      min-width: 250px;
-    }
-    @media(max-width: $small-breakpoint) {
-      display: none;
-    }
   }
 </style>

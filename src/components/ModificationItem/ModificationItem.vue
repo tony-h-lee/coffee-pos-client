@@ -1,5 +1,7 @@
 <template>
-  <div class="item-wrapper">
+  <div class="item-wrapper"
+       v-on:click="toggle"
+       v-bind:class="{active: selected}">
     <h1> {{ item.name }} </h1>
   </div>
 </template>
@@ -9,6 +11,17 @@ export default {
   name: 'ModificationItem',
   props: {
     item: { type: Object, required: true }
+  },
+  data () {
+    return {
+      selected: false
+    }
+  },
+  methods: {
+    toggle: function () {
+      this.selected = !this.selected
+      console.log(this.selected)
+    }
   }
 }
 </script>
@@ -32,5 +45,8 @@ export default {
       flex-basis: 100%;
       height: 300px;
     }
+  }
+  .active {
+    background: #EEE;
   }
 </style>

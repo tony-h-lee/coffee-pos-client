@@ -2,6 +2,7 @@ export default {
   state: {
     shopData: false,
     selectedItem: false,
-    currentOrder: false
+    currentOrder: false,
+    selectedModifications: []
   }
 }

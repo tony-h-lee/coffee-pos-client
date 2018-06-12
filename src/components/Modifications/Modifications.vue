@@ -2,7 +2,9 @@
   <div class="modifications-panel">
     <p> Modifications </p>
     <p> {{ selected.name }}</p>
-    <ModificationList v-bind:modifications="filterModifications(modifications, selected)">
+    <ModificationList
+      v-bind:modifications="filterModifications(modifications, selected)"
+      v-on:toggleModification="toggleModification">
     </ModificationList>
   </div>
 </template>
@@ -23,6 +25,9 @@ export default {
     filterModifications: (modifications, selectedItem) => {
       return modifications && selectedItem
         ? modifications.filter((modification) => modification.to.some((to) => to.id === selectedItem.id)) : []
+    },
+    toggleModification: function (modification) {
+      this.$emit('toggleModification', modification)
     }
   }
 }
