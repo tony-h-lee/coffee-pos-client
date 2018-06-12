@@ -55,7 +55,9 @@ export default {
   },
   methods: {
     loadModifications: function (item) {
+      // Load modifications for this item and reset currently selected modifications
       this.state.selectedItem = item
+      this.state.selectedModifications = []
     },
     toggleModification: function (modification) {
       if (this.state.selectedModifications.indexOf(modification) !== -1) {
@@ -64,7 +66,6 @@ export default {
       } else {
         this.state.selectedModifications = [...this.state.selectedModifications, modification]
       }
-      console.log(this.state.selectedModifications)
     }
   }
 }

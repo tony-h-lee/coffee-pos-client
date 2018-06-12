@@ -1,11 +1,13 @@
 <template>
   <div class="modifications-panel">
     <p> Modifications </p>
-    <p> {{ selected.name }}</p>
+    <h1> {{ selected.name }}</h1>
     <ModificationList
       v-bind:modifications="filterModifications(modifications, selected)"
       v-on:toggleModification="toggleModification">
     </ModificationList>
+    <h1> Cost: {{ cost }}</h1>
+    <button> Add to order </button>
   </div>
 </template>
 
@@ -15,6 +17,11 @@ export default {
   name: 'Modifications',
   components: {
     ModificationList
+  },
+  data () {
+    return {
+      cost: 0
+    }
   },
   props: {
     selected: { type: [Object, Boolean], required: true },

@@ -2,7 +2,7 @@
   <div class="item-wrapper"
        v-on:click="toggle"
        v-bind:class="{active: selected}">
-    <h1> {{ item.name }} </h1>
+    <h3> {{ item.name }} </h3>
   </div>
 </template>
 
@@ -20,7 +20,6 @@ export default {
   methods: {
     toggle: function () {
       this.selected = !this.selected
-      console.log(this.selected)
     }
   }
 }
