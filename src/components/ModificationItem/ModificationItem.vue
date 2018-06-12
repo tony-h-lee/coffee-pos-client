@@ -33,17 +33,6 @@ export default {
     }
     background: #FFF;
     border: 1px solid #EEE;
-    @media(max-width: $mobile-breakpoint) {
-      flex-basis: calc(100% / 3);
-    }
-    @media(max-width: $small-breakpoint) {
-      flex-basis: 50%;
-      height: 300px;
-    }
-    @media(max-width: $tiny-breakpoint) {
-      flex-basis: 100%;
-      height: 300px;
-    }
   }
   .active {
     background: #EEE;

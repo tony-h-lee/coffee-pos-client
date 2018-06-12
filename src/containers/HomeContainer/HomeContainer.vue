@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     loadModifications: function (item) {
-      // Load modifications for this item and reset currently selected modifications
+      // Set the selected item so that modification panel can filter and reset any current modifications added
       this.state.selectedItem = item
       this.state.selectedModifications = []
     },

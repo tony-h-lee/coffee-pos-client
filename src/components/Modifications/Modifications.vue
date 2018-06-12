@@ -28,7 +28,7 @@ export default {
     modifications: { type: [Array, Boolean], required: true }
   },
   methods: {
-    // For each modification, find if the selected item belongs to this modifications to array
+    // For each modification, return only if the modification belongs to the selected item
     filterModifications: (modifications, selectedItem) => {
       return modifications && selectedItem
         ? modifications.filter((modification) => modification.to.some((to) => to.id === selectedItem.id)) : []
