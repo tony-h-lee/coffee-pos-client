@@ -3,36 +3,47 @@
     <p> Modifications </p>
     <h1> {{ selected.name }}</h1>
     <ModificationList
-      v-bind:modifications="filterModifications(modifications, selected)"
+      v-bind:modifications="filteredModifications"
       v-on:toggleModification="toggleModification">
     </ModificationList>
-    <h1> Cost: {{ cost }}</h1>
-    <button> Add to order </button>
+    <div v-if="selected">
+      <h1> Cost: {{ cost }}</h1>
+      <button> Add to order </button>
+    </div>
+    <div v-else>
+      <h2> Select an item to begin an order </h2>
+    </div>
+
   </div>
 </template>
 
 <script>
 import ModificationList from '@/components/ModificationList/ModificationList'
+
 export default {
   name: 'Modifications',
   components: {
     ModificationList
+  },
+  props: {
+    selected: { type: [Object, Boolean], required: true },
+    modifications: { type: [Object, Boolean], required: true },
+    selectedModifications: { type: Array, required: true }
+  },
+  computed: {
+    // For each modification, return only if the modification belongs to the selected item
+    filteredModifications: function () {
+      return this.modifications && this.selected
+        ? this.modifications.filter((modification) => modification.to.some((to) => to.id === this.selected.id))
+        : []
+    }
   },
   data () {
     return {
       cost: 0
     }
   },
-  props: {
-    selected: { type: [Object, Boolean], required: true },
-    modifications: { type: [Array, Boolean], required: true }
-  },
   methods: {
-    // For each modification, return only if the modification belongs to the selected item
-    filterModifications: (modifications, selectedItem) => {
-      return modifications && selectedItem
-        ? modifications.filter((modification) => modification.to.some((to) => to.id === selectedItem.id)) : []
-    },
     toggleModification: function (modification) {
       this.$emit('toggleModification', modification)
     }

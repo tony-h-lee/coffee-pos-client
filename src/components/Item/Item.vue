@@ -19,6 +19,7 @@ export default {
     h1 {
       margin-top: 0;
     }
+    cursor: pointer;
     background: #FFF;
     border: 1px solid #EEE;
     flex-basis: 25%;

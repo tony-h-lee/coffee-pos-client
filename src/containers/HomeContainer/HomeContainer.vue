@@ -3,7 +3,8 @@
     <div class="home-grid" v-if="state.shopData && !state.loading">
       <Modifications
         :selected="state.selectedItem"
-        v-bind="{ modifications: state.selectedItem && state.shopData.modifications }"
+        v-bind="{ modifications: state.selectedItem && state.shopData.modifications,
+         selectedModifications: state.selectedModifications }"
         v-on:toggleModification="toggleModification">
       </Modifications>
       <Inventory
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+import { StoreBuilder } from '@/classes/StoreBuilder'
 import Container from '@/classes/Container'
 import Spinner from '@/components/Spinner/Spinner'
 import Inventory from '@/components/Inventory/Inventory'
@@ -47,7 +49,8 @@ export default {
     getShopData()
       .then(function (data) {
         this.state.loading = false
-        this.state.shopData = data
+        this.state.shopData = new StoreBuilder(data)
+        console.log(typeof this.state.shopData.modifications)
       }.bind(this))
       .catch(function (error) {
         this.state.error = error
