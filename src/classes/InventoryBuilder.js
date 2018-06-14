@@ -6,7 +6,7 @@ import { ArrayBuilder } from './ArrayBuilder'
  *
  * @param {modifications} : array - An array of modifications that belong to one or more items
  */
-export function InventoryBuilder (items) {
+export function InventoryBuilder (items = []) {
   ArrayBuilder.call(this, InventoryItem, items)
 }
 

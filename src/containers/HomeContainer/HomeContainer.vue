@@ -7,7 +7,7 @@
         v-bind="{ inventory: state.shopData.items }"
         v-on:selectItem="loadModifications">
       </Inventory>
-      <Order :items="state.currentOrder"></Order>
+      <Order v-bind="{ order: state.currentOrder }"></Order>
     </div>
     <div class="home-loader" v-else>
       <Spinner></Spinner>
