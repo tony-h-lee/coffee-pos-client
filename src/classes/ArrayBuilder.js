@@ -19,3 +19,11 @@ ArrayBuilder.prototype.toggleItem = function (item) {
     this.selectedItems = [...this.selectedItems, item]
   }
 }
+
+ArrayBuilder.prototype.getSelectedCost = function () {
+  let totalCost = 0
+  this.selectedItems.map((item) => {
+    totalCost += +item.cost
+  })
+  return totalCost
+}

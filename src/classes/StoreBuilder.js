@@ -1,13 +1,23 @@
 import { ModificationBuilder } from './ModificationBuilder'
 
 /*
- * Converts a shop JSON to a shop object with the shop name, items, and modifications
- *
- * @param {json} : object - A shop JSON retrieved from an API
+ * Initialize a shop object with the empty shop name, items, and modifications
  */
-export function StoreBuilder (json) {
+export function StoreBuilder () {
+  this.id = null
+  this.name = null
+  this.items = null
+  this.modifications = null
+}
+
+// Set shop fields from retrieved shop JSON via API
+StoreBuilder.prototype.setData = function (json) {
   this.id = json.id
   this.name = json.name
   this.items = json.items
   this.modifications = new ModificationBuilder(json.modifications)
+}
+
+StoreBuilder.prototype.isSet = function () {
+  return this.id !== null
 }

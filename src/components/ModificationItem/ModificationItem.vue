@@ -1,7 +1,7 @@
 <template>
   <div class="item-wrapper"
        v-on:click="toggle"
-       v-bind:class="{active: selected}">
+       v-bind:class="{active: item.selected}">
     <h3> {{ item.name }} </h3>
   </div>
 </template>
@@ -12,14 +12,9 @@ export default {
   props: {
     item: { type: Object, required: true }
   },
-  data () {
-    return {
-      selected: false
-    }
-  },
   methods: {
     toggle: function () {
-      this.selected = !this.selected
+      this.item.toggle()
     }
   }
 }

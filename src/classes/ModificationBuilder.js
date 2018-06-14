@@ -10,6 +10,9 @@ export function ModificationBuilder (modifications) {
   ArrayBuilder.call(this, ModificationItem, modifications)
 }
 
+ModificationBuilder.prototype = Object.create(ArrayBuilder.prototype)
+ModificationBuilder.prototype.constructor = ModificationBuilder
+
 // If an item is selected, return an array of ModificationItems if they belong to the item in the parameter
 // otherwise, return an empty array
 ModificationBuilder.prototype.filteredModifications = function (item) {
@@ -17,5 +20,9 @@ ModificationBuilder.prototype.filteredModifications = function (item) {
     : []
 }
 
-ModificationBuilder.prototype = Object.create(ArrayBuilder.prototype)
-ModificationBuilder.prototype.constructor = ModificationBuilder
+ModificationBuilder.prototype.resetSelected = function () {
+  this.selectedItems.map((modification) => {
+    modification.selected = false
+  })
+  this.selectedItems = []
+}

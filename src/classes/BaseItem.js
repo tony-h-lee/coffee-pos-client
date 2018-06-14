@@ -4,6 +4,7 @@
  * @param {item} : object - Any particular item within a store's inventory.
  */
 export function BaseItem (item) {
+  this.id = item.id
   this.name = item.name
   this.cost = item.cost
 }

@@ -1,16 +1,11 @@
 <template>
   <div class="home-wrapper">
-    <div class="home-grid" v-if="state.shopData && !state.loading">
-      <Modifications
-        :selected="state.selectedItem"
-        v-bind="{ modifications: state.selectedItem && state.shopData.modifications,
-         selectedModifications: state.selectedModifications }"
-        v-on:toggleModification="toggleModification">
+    <div class="home-grid" v-if="state.shopData.isSet()">
+      <Modifications v-bind="{ selected: state.selectedItem, modifications: state.shopData.modifications }">
       </Modifications>
       <Inventory
         v-bind="{ inventory: state.shopData.items }"
         v-on:selectItem="loadModifications">
-
       </Inventory>
       <Order :items="state.currentOrder"></Order>
     </div>
@@ -21,7 +16,6 @@
 </template>
 
 <script>
-import { StoreBuilder } from '@/classes/StoreBuilder'
 import Container from '@/classes/Container'
 import Spinner from '@/components/Spinner/Spinner'
 import Inventory from '@/components/Inventory/Inventory'
@@ -49,8 +43,7 @@ export default {
     getShopData()
       .then(function (data) {
         this.state.loading = false
-        this.state.shopData = new StoreBuilder(data)
-        console.log(typeof this.state.shopData.modifications)
+        this.state.shopData.setData(data)
       }.bind(this))
       .catch(function (error) {
         this.state.error = error
@@ -60,15 +53,7 @@ export default {
     loadModifications: function (item) {
       // Set the selected item so that modification panel can filter and reset any current modifications added
       this.state.selectedItem = item
-      this.state.selectedModifications = []
-    },
-    toggleModification: function (modification) {
-      if (this.state.selectedModifications.indexOf(modification) !== -1) {
-        this.state.selectedModifications = this.state.selectedModifications
-          .filter((selectedModification) => selectedModification.id !== modification.id)
-      } else {
-        this.state.selectedModifications = [...this.state.selectedModifications, modification]
-      }
+      this.state.shopData.modifications.resetSelected()
     }
   }
 }

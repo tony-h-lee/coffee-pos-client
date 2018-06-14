@@ -27,17 +27,16 @@ export default {
   },
   props: {
     selected: { type: [Object, Boolean], required: true },
-    modifications: { type: [Object, Boolean], required: true },
-    selectedModifications: { type: Array, required: true }
+    modifications: { type: [Object, Boolean], required: true }
   },
-  data () {
-    return {
-      cost: 0
+  computed: {
+    cost: function () {
+      return this.modifications.getSelectedCost()
     }
   },
   methods: {
     toggleModification: function (modification) {
-      this.$emit('toggleModification', modification)
+      this.modifications.toggleItem(modification)
     }
   }
 }
