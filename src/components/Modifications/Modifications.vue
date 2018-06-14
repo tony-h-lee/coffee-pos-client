@@ -3,7 +3,7 @@
     <p> Modifications </p>
     <h1> {{ selected.name }}</h1>
     <ModificationList
-      v-bind:modifications="filteredModifications"
+      v-bind:modifications="modifications.filteredModifications(selected)"
       v-on:toggleModification="toggleModification">
     </ModificationList>
     <div v-if="selected">
@@ -29,14 +29,6 @@ export default {
     selected: { type: [Object, Boolean], required: true },
     modifications: { type: [Object, Boolean], required: true },
     selectedModifications: { type: Array, required: true }
-  },
-  computed: {
-    // For each modification, return only if the modification belongs to the selected item
-    filteredModifications: function () {
-      return this.modifications && this.selected
-        ? this.modifications.filter((modification) => modification.to.some((to) => to.id === this.selected.id))
-        : []
-    }
   },
   data () {
     return {

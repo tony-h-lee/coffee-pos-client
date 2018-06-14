@@ -10,5 +10,12 @@ export function ModificationBuilder (modifications) {
   ArrayBuilder.call(this, ModificationItem, modifications)
 }
 
+// If an item is selected, return an array of ModificationItems if they belong to the item in the parameter
+// otherwise, return an empty array
+ModificationBuilder.prototype.filteredModifications = function (item) {
+  return item ? this.items.filter((modification) => modification.to.some((to) => to.id === item.id))
+    : []
+}
+
 ModificationBuilder.prototype = Object.create(ArrayBuilder.prototype)
 ModificationBuilder.prototype.constructor = ModificationBuilder
