@@ -14,16 +14,18 @@ export function ArrayBuilder (Wrapper, items) {
 ArrayBuilder.prototype.toggleItem = function (item) {
   if (this.selectedItems.indexOf(item) !== -1) {
     this.selectedItems = this.selectedItems
-      .filter((selectedModification) => selectedModification.id !== item.id)
+      .filter((selectedItem) => selectedItem.id !== item.id)
   } else {
     this.selectedItems = [...this.selectedItems, item]
   }
 }
 
+// Calculate the total cost of all currently selected items within this array
+// Items contained in the array should have a cost field
 ArrayBuilder.prototype.getSelectedCost = function () {
   let totalCost = 0
   this.selectedItems.map((item) => {
-    totalCost += +item.cost
+    if (item.cost) totalCost += +item.cost
   })
   return totalCost
 }

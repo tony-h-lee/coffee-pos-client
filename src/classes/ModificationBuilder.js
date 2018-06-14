@@ -20,9 +20,13 @@ ModificationBuilder.prototype.filteredModifications = function (item) {
     : []
 }
 
-ModificationBuilder.prototype.resetSelected = function () {
-  this.selectedItems.map((modification) => {
-    modification.selected = false
-  })
-  this.selectedItems = []
+// Unselect all currently selected Modifications and clear the array of selected modifications if the item clicked
+// was not the same item as the currently selected item
+ModificationBuilder.prototype.resetSelected = function (previousSelected, currentSelected) {
+  if (previousSelected && (previousSelected.id !== currentSelected.id)) {
+    this.selectedItems.map((modification) => {
+      modification.selected = false
+    })
+    this.selectedItems = []
+  }
 }

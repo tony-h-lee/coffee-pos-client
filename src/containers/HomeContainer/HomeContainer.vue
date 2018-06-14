@@ -52,8 +52,8 @@ export default {
   methods: {
     loadModifications: function (item) {
       // Set the selected item so that modification panel can filter and reset any current modifications added
+      this.state.shopData.modifications.resetSelected(this.state.selectedItem, item)
       this.state.selectedItem = item
-      this.state.shopData.modifications.resetSelected()
     }
   }
 }

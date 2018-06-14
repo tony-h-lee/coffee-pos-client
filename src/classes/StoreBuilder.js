@@ -1,4 +1,5 @@
 import { ModificationBuilder } from './ModificationBuilder'
+import { InventoryBuilder } from './InventoryBuilder'
 
 /*
  * Initialize a shop object with the empty shop name, items, and modifications
@@ -14,7 +15,7 @@ export function StoreBuilder () {
 StoreBuilder.prototype.setData = function (json) {
   this.id = json.id
   this.name = json.name
-  this.items = json.items
+  this.items = new InventoryBuilder(json.items)
   this.modifications = new ModificationBuilder(json.modifications)
 }
 

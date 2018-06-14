@@ -2,7 +2,7 @@
   <div class="inventory-panel">
     <Item
       v-on:click.native="selectItem(item)"
-      v-for="item in inventory"
+      v-for="item in inventory.items"
       v-bind:item="item"
       v-bind:key="item.id">
     </Item>
@@ -17,7 +17,7 @@ export default {
     Item
   },
   props: {
-    inventory: { type: [Array, Boolean], required: true }
+    inventory: { type: [Object, Boolean], required: true }
   },
   methods: {
     selectItem: function (item) {

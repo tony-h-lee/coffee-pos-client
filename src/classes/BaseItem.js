@@ -7,4 +7,10 @@ export function BaseItem (item) {
   this.id = item.id
   this.name = item.name
   this.cost = item.cost
+  this.selected = false
+}
+
+// Toggle if this item is selected or unselected
+BaseItem.prototype.toggle = function () {
+  this.selected = !this.selected
 }
