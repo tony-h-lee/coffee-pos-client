@@ -3,6 +3,7 @@
        v-on:click="toggle"
        v-bind:class="{active: item.selected}">
     <h3> {{ item.name }} </h3>
+    <p v-if="item.cost>0"> ${{ item.cost }} </p>
   </div>
 </template>
 
@@ -23,8 +24,8 @@ export default {
 <style lang="scss" scoped>
   @import "../../styles/variables/widths.scss";
   .item-wrapper {
-    h1 {
-      margin-top: 0;
+    h3, p {
+      margin: 0.7rem 0;
     }
     cursor: pointer;
     background: #FFF;
