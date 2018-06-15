@@ -1,5 +1,4 @@
 import { OrderItem } from './OrderItem'
-import { ArrayBuilder } from './ArrayBuilder'
 
 /*
  * Converts JSON to a wrapper containing order objects
@@ -7,13 +6,15 @@ import { ArrayBuilder } from './ArrayBuilder'
  * @param {items} : array - An array of items that belong to one or more items
  */
 export function OrderBuilder (items = []) {
-  ArrayBuilder.call(this, OrderItem, items)
+  this.items = items
 }
 
-OrderBuilder.prototype = Object.create(ArrayBuilder.prototype)
-OrderBuilder.prototype.constructor = OrderBuilder
+// Remove a selected item from the currently order items
+OrderBuilder.prototype.addItem = function (item, modifications) {
+  this.items = [...this.items, new OrderItem(item, modifications)]
+}
 
 // Remove a selected item from the currently order items
-OrderBuilder.prototype.removeItem = function (item) {
-  this.selectedItems = this.selectedItems.filter((selectedItem) => selectedItem.id !== item.id)
+OrderBuilder.prototype.removeItem = function (selectedItem) {
+  this.items = this.items.filter((orderItem) => orderItem.id !== selectedItem.id)
 }

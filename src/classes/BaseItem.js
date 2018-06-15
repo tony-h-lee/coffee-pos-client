@@ -7,7 +7,7 @@ export function BaseItem (item) {
   this.id = item.id
   this.name = item.name
   this.cost = item.cost
-  this.selected = false
+  this.selected = item ? item.selected : false
 }
 
 // Toggle if this item is selected or unselected

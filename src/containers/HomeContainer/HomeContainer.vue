@@ -1,7 +1,10 @@
 <template>
   <div class="home-wrapper">
     <div class="home-grid" v-if="state.shopData.isSet()">
-      <Modifications v-bind="{ selected: state.selectedItem, modifications: state.shopData.modifications }">
+      <Modifications
+        v-bind="{ selected: state.selectedItem, modifications: state.shopData.modifications }"
+        v-on:addToOrder="addToOrder"
+      >
       </Modifications>
       <Inventory
         v-bind="{ inventory: state.shopData.items }"
@@ -50,10 +53,19 @@ export default {
       })
   },
   methods: {
+    // Set the selected item so that modification panel can filter and reset any current modifications added
     loadModifications: function (item) {
-      // Set the selected item so that modification panel can filter and reset any current modifications added
       this.state.shopData.modifications.resetSelected(this.state.selectedItem, item)
       this.state.selectedItem = item
+    },
+    // Add an OrderItem with selected InventoryItem and array of ModificationItems and
+    // reset the modifications and selected item
+    addToOrder: function (data) {
+      const { selected, modification } = data
+      this.state.currentOrder.addItem(selected, modification.selectedItems)
+      this.state.shopData.modifications.resetSelected(this.state.selectedItem, selected)
+      this.state.selectedItem = false
+      console.log(this.state.currentOrder)
     }
   }
 }

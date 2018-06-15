@@ -6,6 +6,6 @@ export const getShopData = function () {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(Mock)
-    }, 2000)
+    }, 50)
   })
 }

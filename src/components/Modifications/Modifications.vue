@@ -7,8 +7,8 @@
       v-on:toggleModification="toggleModification">
     </ModificationList>
     <div v-if="selected">
-      <h1> Cost: {{ cost }}</h1>
-      <button> Add to order </button>
+      <h1> Cost: ${{ cost }}</h1>
+      <button v-on:click="addToOrder(selected, modifications)"> Add to order </button>
     </div>
     <div v-else>
       <h2> Select an item to begin an order </h2>
@@ -37,6 +37,12 @@ export default {
   methods: {
     toggleModification: function (modification) {
       this.modifications.toggleItem(modification)
+    },
+    addToOrder: function (selected, modification) {
+      if (selected && modification) {
+        this.$emit('addToOrder', { selected, modification })
+        this.modifications.resetAfterOrder()
+      }
     }
   }
 }
@@ -49,6 +55,7 @@ export default {
     flex-direction: column;
     flex-basis: 20%;
     background: #DDD;
+    overflow: auto;
     @media(max-width: $medium-breakpoint) {
       min-height: 100vh;
       min-width: 250px;
