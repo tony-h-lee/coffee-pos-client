@@ -59,6 +59,21 @@ export default {
         padding: 1rem;
       }
     }
+    button {
+      width: 100%;
+      border: 1px solid #DDD;
+      background: #FAFAFA;
+      padding: 10px 15px;
+      cursor: pointer;
+      color: #666;
+      font-size: 0.8rem;
+      transition: 0.15s;
+      &:hover, &:active {
+        background: rgba(173, 219, 164, 0.4);
+        border: 1px solid #addba4;
+        outline: none;
+      }
+    }
     @media(max-width: $medium-breakpoint) {
       flex-basis: 100%;
       min-height: 300px;

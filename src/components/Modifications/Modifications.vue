@@ -62,6 +62,20 @@ export default {
       }
       padding: 1.5rem;
     }
+    button {
+      width: 100%;
+      border: 1px solid #DDD;
+      background: #FAFAFA;
+      padding: 10px 15px;
+      cursor: pointer;
+      color: #666;
+      font-size: 0.8rem;
+      transition: 0.15s;
+      &:hover, &:active {
+        background: #EEE;
+        outline: none;
+      }
+    }
     @media(max-width: $medium-breakpoint) {
       min-height: 100vh;
       min-width: 250px;
@@ -69,5 +83,6 @@ export default {
     @media(max-width: $small-breakpoint) {
       display: none;
     }
+
   }
 </style>

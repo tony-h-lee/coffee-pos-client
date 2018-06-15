@@ -1,6 +1,6 @@
 <template>
   <div class="item-wrapper">
-    <h1> {{ item.name }} </h1>
+    <h3> {{ item.name }} </h3>
   </div>
 </template>
 
@@ -16,8 +16,11 @@ export default {
 <style lang="scss" scoped>
   @import "../../styles/variables/widths.scss";
   .item-wrapper {
-    h1 {
-      margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h3 {
+      margin: 0;
     }
     cursor: pointer;
     background: #FFF;

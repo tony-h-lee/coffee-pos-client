@@ -80,6 +80,24 @@ export default {
   .remove-item {
     width: 100%;
     text-align: right;
+    button {
+      border: 1px solid #DDD;
+      background: #FAFAFA;
+      padding: 5px 10px;
+      cursor: pointer;
+      color: #666;
+      font-size: 0.7rem;
+      transition: 0.15s;
+      &:hover, &:active {
+        color: #ad2626;
+        border: 1px solid #d18383;
+        background: #e2c3c3;
+        outline: none;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
   }
 
 </style>
