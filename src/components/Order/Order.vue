@@ -1,14 +1,16 @@
 <template>
   <div class="order-panel">
-    <p> Order </p>
-    <OrderList
-      v-if="order && order.items.length > 0"
-      v-bind:items="order.items">
-    </OrderList>
-    <div v-else>
-      <h2> Add an item to order </h2>
+    <h2> Order </h2>
+    <div class="order-content" v-if="order && order.items.length > 0">
+      <OrderList v-bind:items="order.items"></OrderList>
+      <div class="order-control">
+        <h3> Total Cost: $12.00</h3>
+        <button> Checkout </button>
+      </div>
     </div>
-
+    <div v-else>
+      <p> Add an item to order </p>
+    </div>
   </div>
 </template>
 
@@ -29,11 +31,18 @@ export default {
   @import "../../styles/variables/widths.scss";
   .order-panel {
     display: flex;
-    flex-direction: column;
     flex-basis: 20%;
-    background: #CCC;
-    overflow: auto;
+    text-align: center;
+    flex-direction: column;
     max-height: 100vh;
+    .order-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      .order-control {
+        padding: 1rem;
+      }
+    }
     @media(max-width: $medium-breakpoint) {
       flex-basis: 100%;
       min-height: 300px;

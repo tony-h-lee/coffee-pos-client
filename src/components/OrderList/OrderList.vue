@@ -26,7 +26,10 @@ export default {
 <style lang="scss" scoped>
   @import "../../styles/variables/widths.scss";
   .order-list {
+    text-align: left;
     display: flex;
+    flex: 1;
     flex-direction: column;
+    overflow: auto;
   }
 </style>
