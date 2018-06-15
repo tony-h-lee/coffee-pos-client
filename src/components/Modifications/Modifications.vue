@@ -10,7 +10,7 @@
       v-on:toggleModification="toggleModification">
     </ModificationList>
     <div v-if="selected" class="modifications-control">
-      <h1> Cost: ${{ cost }}</h1>
+      <h3> Cost: ${{ cost.toFixed(2) }}</h3>
       <button v-on:click="addToOrder(selected, modifications)"> Add to order </button>
     </div>
   </div>
@@ -56,8 +56,8 @@ export default {
     flex-basis: 20%;
     overflow: auto;
     .modifications-control {
-      h1 {
-        margin: 0.5rem;
+      h3 {
+        margin: 1rem 0;
       }
       padding: 1.5rem;
     }

@@ -7,7 +7,7 @@
         v-on:removeItem="removeItem">
       </OrderList>
       <div class="order-control">
-        <h3> Total Cost: $12.00</h3>
+        <h3> Total: ${{ cost.toFixed(2) }}</h3>
         <button> Checkout </button>
       </div>
     </div>
@@ -26,6 +26,11 @@ export default {
   },
   components: {
     OrderList
+  },
+  computed: {
+    cost: function () {
+      return this.order.getTotal()
+    }
   },
   methods: {
     removeItem: function (item) {

@@ -1,7 +1,7 @@
 <template>
   <div class="item-wrapper">
     <div class="item-name"> <h3> {{ orderItem.item.name }} </h3> </div>
-    <div class="item-cost"> <p> ${{ totalCost(orderItem.modifications) }} </p> </div>
+    <div class="item-cost"> <p> ${{ totalCost(orderItem.modifications).toFixed(2) }} </p> </div>
     <div class="item-modifications">
       <div
         class="modification"
@@ -9,7 +9,7 @@
         v-bind:modification="modification"
         v-bind:key="modification.id">
         <div class="modification-name"> <p>{{ modification.name }} </p> </div>
-        <div v-if="+modification.cost>0" class="modification-cost"> <p> ${{ modification.cost }} </p> </div>
+        <div v-if="+modification.cost>0" class="modification-cost"> <p> ${{ modification.cost.toFixed(2) }} </p> </div>
       </div>
     </div>
     <div v-on:click="removeItem(orderItem)" class="remove-item"> <button> Remove </button> </div>
