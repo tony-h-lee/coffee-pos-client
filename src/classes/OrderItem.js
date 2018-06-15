@@ -7,7 +7,7 @@ import { InventoryItem } from '@/classes/InventoryItem'
  * @param {modifcations} : array - An array containing selected ModificationItems for the selected InventoryItem
  */
 export function OrderItem (item, modifications) {
-  // Hacky solution for a new order item's inventory item id, need a unique id
+  // Hacky solution using date for a new order item's inventory item id, need a unique id generator
   this.item = new InventoryItem(Object.assign({}, {...item}, {id: item.id + Date.now()}))
   this.modifications = modifications
 }
