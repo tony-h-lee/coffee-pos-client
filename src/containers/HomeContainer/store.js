@@ -6,6 +6,7 @@ export default {
     shopData: new StoreBuilder(),
     selectedItem: false,
     currentOrder: new OrderBuilder(),
-    selectedModifications: []
+    selectedModifications: [],
+    message: false
   }
 }

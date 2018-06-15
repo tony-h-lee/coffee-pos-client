@@ -17,7 +17,7 @@ export default {
   @import "../../styles/variables/widths.scss";
   .item-wrapper {
     h1 {
-      margin-top: 0;
+      margin: auto;
     }
     cursor: pointer;
     background: #FFF;

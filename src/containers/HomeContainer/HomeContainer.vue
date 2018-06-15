@@ -1,6 +1,6 @@
 <template>
   <div class="home-wrapper">
-    <div class="home-grid" v-if="state.shopData.isSet()">
+    <div class="home-grid" v-if="!loading && state.shopData.isSet()">
       <Modifications
         v-bind="{ selected: state.selectedItem, modifications: state.shopData.modifications }"
         v-on:addToOrder="addToOrder"
@@ -10,10 +10,12 @@
         v-bind="{ inventory: state.shopData.items }"
         v-on:selectItem="loadModifications">
       </Inventory>
-      <Order v-bind="{ order: state.currentOrder }"></Order>
+      <Order v-bind="{ order: state.currentOrder }"
+             v-on:checkout="checkout"></Order>
     </div>
     <div class="home-loader" v-else>
       <Spinner></Spinner>
+      <h1 v-if="state.message"> {{ state.message }}</h1>
     </div>
   </div>
 </template>
@@ -24,7 +26,7 @@ import Spinner from '@/components/Spinner/Spinner'
 import Inventory from '@/components/Inventory/Inventory'
 import Modifications from '@/components/Modifications/Modifications'
 import Order from '@/components/Order/Order'
-import { getShopData } from './api'
+import { getShopData, createOrder } from './api'
 import store from './store'
 
 export default {
@@ -42,15 +44,15 @@ export default {
     Spinner
   },
   mounted () {
-    this.state.loading = true
+    this.loading = true
     getShopData()
       .then(function (data) {
-        this.state.loading = false
+        this.loading = false
         this.state.shopData.setData(data)
       }.bind(this))
       .catch(function (error) {
-        this.state.error = error
-      })
+        this.error = error
+      }.bind(this))
   },
   methods: {
     // Set the selected item so that modification panel can filter and reset any current modifications added
@@ -65,6 +67,21 @@ export default {
       this.state.currentOrder.addItem(selected, modification.selectedItems)
       this.state.shopData.modifications.resetSelected(this.state.selectedItem, selected)
       this.state.selectedItem = false
+    },
+    checkout: function () {
+      this.loading = true
+      this.state.message = 'Processing order...'
+      createOrder(this.state.currentOrder)
+        .then(function (data) {
+          this.state.message = false
+          this.loading = false
+          this.state.currentOrder.resetOrder()
+          this.state.shopData.modifications.resetAfterOrder()
+          this.state.selectedItem = false
+        }.bind(this))
+        .catch(function (error) {
+          this.error = error
+        }.bind(this))
     }
   }
 }
@@ -77,6 +94,9 @@ export default {
   }
   .home-wrapper, .home-loader {
     @extend %max-height;
+  }
+  .home-loader h1 {
+    text-align: center;
   }
   .home-grid {
     @extend %max-height;

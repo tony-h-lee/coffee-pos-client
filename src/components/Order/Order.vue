@@ -8,7 +8,7 @@
       </OrderList>
       <div class="order-control">
         <h3> Total: ${{ cost.toFixed(2) }}</h3>
-        <button> Checkout </button>
+        <button v-on:click="checkout"> Checkout </button>
       </div>
     </div>
     <div v-else>
@@ -35,6 +35,9 @@ export default {
   methods: {
     removeItem: function (item) {
       this.order.removeItem(item)
+    },
+    checkout: function () {
+      this.$emit('checkout')
     }
   }
 }

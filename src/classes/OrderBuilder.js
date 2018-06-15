@@ -33,3 +33,7 @@ OrderBuilder.prototype.getTotal = function () {
   })
   return (cost + (cost * TAX_RATE))
 }
+
+OrderBuilder.prototype.resetOrder = function () {
+  this.items = []
+}
