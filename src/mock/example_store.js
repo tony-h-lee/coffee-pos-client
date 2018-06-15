@@ -39,26 +39,22 @@ export default {
       name: 'Tall',
       to: [
         {
-          id: 'd1',
+          id: 'd1'
         },
         {
-          id: 'd2',
-        }
-        ,
+          id: 'd2'
+        },
         {
-          id: 'd3',
-        }
-        ,
+          id: 'd3'
+        },
         {
-          id: 'd4',
-        }
-        ,
+          id: 'd4'
+        },
         {
-          id: 'd5',
-        }
-        ,
+          id: 'd5'
+        },
         {
-          id: 'd6',
+          id: 'd6'
         }
       ],
       cost: '0'
@@ -68,26 +64,22 @@ export default {
       name: 'Grande',
       to: [
         {
-          id: 'd1',
+          id: 'd1'
         },
         {
-          id: 'd2',
-        }
-        ,
+          id: 'd2'
+        },
         {
-          id: 'd3',
-        }
-        ,
+          id: 'd3'
+        },
         {
-          id: 'd4',
-        }
-        ,
+          id: 'd4'
+        },
         {
-          id: 'd5',
-        }
-        ,
+          id: 'd5'
+        },
         {
-          id: 'd6',
+          id: 'd6'
         }
       ],
       cost: '0.75'
@@ -97,26 +89,22 @@ export default {
       name: 'Venti',
       to: [
         {
-          id: 'd1',
+          id: 'd1'
         },
         {
-          id: 'd2',
-        }
-        ,
+          id: 'd2'
+        },
         {
-          id: 'd3',
-        }
-        ,
+          id: 'd3'
+        },
         {
-          id: 'd4',
-        }
-        ,
+          id: 'd4'
+        },
         {
-          id: 'd5',
-        }
-        ,
+          id: 'd5'
+        },
         {
-          id: 'd6',
+          id: 'd6'
         }
       ],
       cost: '1.25'
@@ -186,7 +174,7 @@ export default {
       to: [
         {
           id: 'd3'
-        },
+        }
       ],
       cost: '0'
     },
@@ -196,7 +184,7 @@ export default {
       to: [
         {
           id: 'd3'
-        },
+        }
       ],
       cost: '0'
     },
