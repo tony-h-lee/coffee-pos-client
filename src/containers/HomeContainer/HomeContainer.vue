@@ -65,7 +65,6 @@ export default {
       this.state.currentOrder.addItem(selected, modification.selectedItems)
       this.state.shopData.modifications.resetSelected(this.state.selectedItem, selected)
       this.state.selectedItem = false
-      console.log(this.state.currentOrder)
     }
   }
 }

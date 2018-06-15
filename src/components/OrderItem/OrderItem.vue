@@ -1,7 +1,7 @@
 <template>
   <div class="item-wrapper">
     <div class="item-name"> <h3> {{ orderItem.item.name }} </h3> </div>
-    <div class="item-cost"> <p> ${{ orderItem.item.cost }} </p> </div>
+    <div class="item-cost"> <p> ${{ totalCost(orderItem.modifications) }} </p> </div>
     <div class="item-modifications">
       <div
         class="modification"
@@ -12,6 +12,7 @@
         <div v-if="+modification.cost>0" class="modification-cost"> <p> ${{ modification.cost }} </p> </div>
       </div>
     </div>
+    <div v-on:click="removeItem(orderItem)" class="remove-item"> <button> Remove </button> </div>
   </div>
 </template>
 
@@ -24,6 +25,16 @@ export default {
   methods: {
     toggle: function () {
       this.item.toggle()
+    },
+    totalCost: function (modification) {
+      let cost = +this.orderItem.item.cost
+      modification.map((modificationItem) => {
+        if (modificationItem.cost) cost += +modificationItem.cost
+      })
+      return cost
+    },
+    removeItem: function (item) {
+      this.$emit('removeItem', item)
     }
   }
 }
@@ -65,6 +76,10 @@ export default {
         font-size: 0.9rem;
       }
     }
+  }
+  .remove-item {
+    width: 100%;
+    text-align: right;
   }
 
 </style>

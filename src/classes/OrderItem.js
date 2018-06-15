@@ -1,3 +1,4 @@
+import { InventoryItem } from '@/classes/InventoryItem'
 /*
  * Represents a selected InventoryItem along with any selected ModificationItems that correspond
  * to that InventoryItem
@@ -6,7 +7,8 @@
  * @param {modifcations} : array - An array containing selected ModificationItems for the selected InventoryItem
  */
 export function OrderItem (item, modifications) {
-  this.item = item
+  // Hacky solution for a new order item's inventory item id, need a unique id
+  this.item = new InventoryItem(Object.assign({}, {...item}, {id: item.id + Date.now()}))
   this.modifications = modifications
 }
 

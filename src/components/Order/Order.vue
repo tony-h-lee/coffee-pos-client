@@ -2,7 +2,10 @@
   <div class="order-panel">
     <h2> Order </h2>
     <div class="order-content" v-if="order && order.items.length > 0">
-      <OrderList v-bind:items="order.items"></OrderList>
+      <OrderList
+        v-bind:items="order.items"
+        v-on:removeItem="removeItem">
+      </OrderList>
       <div class="order-control">
         <h3> Total Cost: $12.00</h3>
         <button> Checkout </button>
@@ -23,6 +26,11 @@ export default {
   },
   components: {
     OrderList
+  },
+  methods: {
+    removeItem: function (item) {
+      this.order.removeItem(item)
+    }
   }
 }
 </script>

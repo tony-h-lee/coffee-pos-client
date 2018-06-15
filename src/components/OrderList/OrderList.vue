@@ -4,6 +4,7 @@
       v-for="item in items"
       v-bind:orderItem="item"
       v-bind:key="item.id"
+      v-on:removeItem="removeItem"
     ></OrderItem>
   </div>
 </template>
@@ -19,6 +20,9 @@ export default {
     items: { type: Array, required: true }
   },
   methods: {
+    removeItem: function (item) {
+      this.$emit('removeItem', item)
+    }
   }
 }
 </script>

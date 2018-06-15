@@ -11,10 +11,10 @@ export function OrderBuilder (items = []) {
 
 // Remove a selected item from the currently order items
 OrderBuilder.prototype.addItem = function (item, modifications) {
-  this.items = [...this.items, new OrderItem(item, modifications)]
+  this.items = [...this.items, new OrderItem(item, modifications, this.items.length)]
 }
 
 // Remove a selected item from the currently order items
 OrderBuilder.prototype.removeItem = function (selectedItem) {
-  this.items = this.items.filter((orderItem) => orderItem.id !== selectedItem.id)
+  this.items = this.items.filter((orderItem) => orderItem.item.id !== selectedItem.item.id)
 }
