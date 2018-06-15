@@ -19,12 +19,17 @@ export default {
     },
     {
       id: 'd4',
-      name: 'Frap',
+      name: 'Cappuccino',
       cost: '3'
     },
     {
       id: 'd5',
-      name: 'Cap',
+      name: 'Mocha',
+      cost: '3'
+    },
+    {
+      id: 'd6',
+      name: 'Espresso',
       cost: '3'
     }
   ],
@@ -34,7 +39,26 @@ export default {
       name: 'Tall',
       to: [
         {
-          id: 'd1'
+          id: 'd1',
+        },
+        {
+          id: 'd2',
+        }
+        ,
+        {
+          id: 'd3',
+        }
+        ,
+        {
+          id: 'd4',
+        }
+        ,
+        {
+          id: 'd5',
+        }
+        ,
+        {
+          id: 'd6',
         }
       ],
       cost: '0'
@@ -44,20 +68,58 @@ export default {
       name: 'Grande',
       to: [
         {
-          id: 'd1'
+          id: 'd1',
+        },
+        {
+          id: 'd2',
+        }
+        ,
+        {
+          id: 'd3',
+        }
+        ,
+        {
+          id: 'd4',
+        }
+        ,
+        {
+          id: 'd5',
+        }
+        ,
+        {
+          id: 'd6',
         }
       ],
-      cost: '0.50'
+      cost: '0.75'
     },
     {
       id: 'm8',
       name: 'Venti',
       to: [
         {
-          id: 'd1'
+          id: 'd1',
+        },
+        {
+          id: 'd2',
+        }
+        ,
+        {
+          id: 'd3',
+        }
+        ,
+        {
+          id: 'd4',
+        }
+        ,
+        {
+          id: 'd5',
+        }
+        ,
+        {
+          id: 'd6',
         }
       ],
-      cost: '1.00'
+      cost: '1.25'
     },
     {
       id: 'm2',
@@ -95,6 +157,9 @@ export default {
       to: [
         {
           id: 'd2'
+        },
+        {
+          id: 'd5'
         }
       ],
       cost: '0.50'
@@ -105,9 +170,70 @@ export default {
       to: [
         {
           id: 'd2'
+        },
+        {
+          id: 'd5'
+        },
+        {
+          id: 'd4'
         }
       ],
       cost: '0.75'
+    },
+    {
+      id: 'm7',
+      name: 'Strawberry Banana',
+      to: [
+        {
+          id: 'd3'
+        },
+      ],
+      cost: '0'
+    },
+    {
+      id: 'm8',
+      name: 'Mango',
+      to: [
+        {
+          id: 'd3'
+        },
+      ],
+      cost: '0'
+    },
+    {
+      id: 'm9',
+      name: 'Regular Syrup',
+      to: [
+        {
+          id: 'd4'
+        },
+        {
+          id: 'd6'
+        },
+        {
+          id: 'd5'
+        }
+      ],
+      cost: '0'
+    },
+    {
+      id: 'm10',
+      name: 'Soy Milk',
+      to: [
+        {
+          id: 'd1'
+        },
+        {
+          id: 'd2'
+        },
+        {
+          id: 'd4'
+        },
+        {
+          id: 'd5'
+        }
+      ],
+      cost: '0'
     }
   ]
 }
