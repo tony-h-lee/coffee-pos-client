@@ -1,19 +1,18 @@
 <template>
   <div class="modifications-panel">
-    <p> Modifications </p>
-    <h1> {{ selected.name }}</h1>
+    <h2> Modifications </h2>
+    <h1 v-if="selected"> {{ selected.name }}</h1>
+    <div v-if="!selected">
+      <p> Select an item </p>
+    </div>
     <ModificationList
       v-bind:modifications="modifications.filteredModifications(selected)"
       v-on:toggleModification="toggleModification">
     </ModificationList>
-    <div v-if="selected">
+    <div v-if="selected" class="modifications-control">
       <h1> Cost: ${{ cost }}</h1>
       <button v-on:click="addToOrder(selected, modifications)"> Add to order </button>
     </div>
-    <div v-else>
-      <h2> Select an item to begin an order </h2>
-    </div>
-
   </div>
 </template>
 
@@ -31,7 +30,7 @@ export default {
   },
   computed: {
     cost: function () {
-      return this.modifications.getSelectedCost()
+      return +this.selected.cost + this.modifications.getSelectedCost()
     }
   },
   methods: {
@@ -51,11 +50,17 @@ export default {
 <style lang="scss" scoped>
   @import "../../styles/variables/widths.scss";
   .modifications-panel {
+    text-align: center;
     display: flex;
     flex-direction: column;
     flex-basis: 20%;
-    background: #DDD;
     overflow: auto;
+    .modifications-control {
+      h1 {
+        margin: 0.5rem;
+      }
+      padding: 1.5rem;
+    }
     @media(max-width: $medium-breakpoint) {
       min-height: 100vh;
       min-width: 250px;

@@ -28,7 +28,7 @@ export default {
     }
     cursor: pointer;
     background: #FFF;
-    border: 1px solid #EEE;
+    border-top: 1px solid #EEE;
   }
   .active {
     background: #EEE;
