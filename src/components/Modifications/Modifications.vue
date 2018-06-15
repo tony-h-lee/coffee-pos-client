@@ -1,7 +1,7 @@
 <template>
   <div class="modifications-panel">
-    <h2> Modifications </h2>
-    <h1 v-if="selected"> {{ selected.name }}</h1>
+    <h4> Modifications </h4>
+    <h2 v-if="selected"> {{ selected.name }}</h2>
     <div v-if="!selected">
       <p> Select an item </p>
     </div>

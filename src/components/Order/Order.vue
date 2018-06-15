@@ -1,6 +1,6 @@
 <template>
   <div class="order-panel">
-    <h2> Order </h2>
+    <h4> Order </h4>
     <div class="order-content" v-if="order && order.items.length > 0">
       <OrderList
         v-bind:items="order.items"
