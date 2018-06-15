@@ -1,6 +1,7 @@
-# flybits-starbucks
+# Coffee POS App
 
-> Front-End Interview Problem
+### Incomplete
+> Responsive modals for modification and order panels with open/close buttons
 
 ## Build Setup
 
