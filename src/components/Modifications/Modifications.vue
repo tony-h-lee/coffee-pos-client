@@ -55,6 +55,7 @@ export default {
     flex-direction: column;
     flex-basis: 20%;
     overflow: auto;
+    max-height: 100vh;
     .modifications-control {
       h3 {
         margin: 1rem 0;

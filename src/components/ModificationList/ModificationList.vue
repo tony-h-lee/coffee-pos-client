@@ -33,5 +33,6 @@ export default {
     display: flex;
     flex-direction: column;
     flex: 1;
+    overflow: auto;
   }
 </style>

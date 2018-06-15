@@ -9,7 +9,7 @@
         v-bind:modification="modification"
         v-bind:key="modification.id">
         <div class="modification-name"> <p>{{ modification.name }} </p> </div>
-        <div v-if="+modification.cost>0" class="modification-cost"> <p> ${{ modification.cost.toFixed(2) }} </p> </div>
+        <div v-if="+modification.cost>0" class="modification-cost"> <p> ${{ (+modification.cost).toFixed(2) }} </p> </div>
       </div>
     </div>
     <div v-on:click="removeItem(orderItem)" class="remove-item"> <button> Remove </button> </div>

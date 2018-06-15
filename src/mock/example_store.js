@@ -30,7 +30,37 @@ export default {
   ],
   modifications: [
     {
+      id: 'm7',
+      name: 'Tall',
+      to: [
+        {
+          id: 'd1'
+        }
+      ],
+      cost: '0'
+    },
+    {
       id: 'm1',
+      name: 'Grande',
+      to: [
+        {
+          id: 'd1'
+        }
+      ],
+      cost: '0.50'
+    },
+    {
+      id: 'm8',
+      name: 'Venti',
+      to: [
+        {
+          id: 'd1'
+        }
+      ],
+      cost: '1.00'
+    },
+    {
+      id: 'm2',
       name: 'Cream',
       to: [
         {
@@ -40,7 +70,7 @@ export default {
       cost: '0'
     },
     {
-      id: 'm2',
+      id: 'm3',
       name: 'Milk',
       to: [
         {
@@ -50,7 +80,7 @@ export default {
       cost: '0'
     },
     {
-      id: 'm3',
+      id: 'm4',
       name: 'Sugar',
       to: [
         {
@@ -60,7 +90,7 @@ export default {
       cost: '0'
     },
     {
-      id: 'm4',
+      id: 'm5',
       name: 'Whipped Cream',
       to: [
         {
@@ -70,7 +100,7 @@ export default {
       cost: '0.50'
     },
     {
-      id: 'm5',
+      id: 'm6',
       name: 'Chocolate Syrup',
       to: [
         {
