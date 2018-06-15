@@ -1,6 +1,6 @@
 # Coffee POS App
 
-### Incomplete
+### Remaining To Do
 - Responsive modals for modification and order panels with open/close buttons
 
 ## Build Setup
